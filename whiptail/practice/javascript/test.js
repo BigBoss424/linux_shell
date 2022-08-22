@@ -1,3 +1,5 @@
+//Question 1
+//Question 1
 let rec = {
     FIRST_NAME: 'John',
     LAST_NAME: 'Smith',
@@ -12,7 +14,7 @@ let rec = {
 //email_body needs to contain first name, last name, phone number, and mailing address
 //Using server-side Javascript, write code that would build the email HTML and use the 
 //aforementioned function to send an email to the customer.
-function send_email(email_to_address, email_body){
+
     email_body = {
         fName: rec.FIRST_NAME,
         lName: rec.LAST_NAME,
@@ -25,7 +27,12 @@ function send_email(email_to_address, email_body){
         ]
     }
 
-}
+    email_to_address = rec.EMAIL;
+
+    
+
+
+//Question 2
 
 //Consider the array of objects
 let recs1 = [
@@ -38,7 +45,7 @@ let recs1 = [
     {
         ID: 2,
         NAME: 'Sally',
-        EMAIL: 'sally@example.com'
+        EMAIL: 'sally@example.com',
         SSN: '456'
     },
     {
@@ -49,6 +56,51 @@ let recs1 = [
     }
 ];
 //Write code that returns the same array of objects without the key "SSN"
-function returnArray(arr){
-    return rec =
+const newrecs = recs1.map(({SSN, ...rest}) => {
+    return rest;
+});
+console.log(newrecs);
+
+recs1.forEach(object => {
+    delete object['SSN'];
+});
+console.log(recs1);
+
+
+
+
+//Question 4
+pdf = {
+    printBackground: true,
+    margin: {
+        top: "30px",
+        right: "0px",
+        bottom: "30px",
+        left: "0px"
+    }
+};
+
+//Return the margins from the input object
+function parse_margin(pdf = {}){
+    
+    return pdf.margin;
 }
+parse_margin(pdf);
+console.log(parse_margin(pdf));
+
+//Question 5
+//Compose a SQL query to select the top
+//100 active sales reps by volume of sales
+//for the prior 30 days.
+
+//select the top 100 active sales
+//select from salesrep, SUM(sales) as salesVolume
+//from salesrep a join sales b on a.salesrep_id = b.salesrep_id
+//group by salerep_name
+//order by salesVolume DESC 
+//LIMIT 100
+//where sales_date > now() - INTERVAL 30 day;
+// by volume
+
+//for the prior 30 days
+//where sales_date > now() - INTERVAL 30 day;
